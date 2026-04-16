@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C6A75E; /* Muted Gold */
+  --color-secondary: #C6A75E; /* Muted Gold */
+  --color-background-dark: #121212; /* Charcoal Black */
+  --color-surface: #1A1A1A; /* Layered Charcoal */
+  --color-text-base: #EDEDED; /* Soft Off-White */
+  --color-muted: #888888; /* Neutral Grey */
+  
+  /* Override Slate to match Charcoal theme */
+  --color-slate-900: #1A1A1A;
+  --color-slate-800: #222222;
+  --color-slate-100: #EDEDED;
+  --color-slate-400: #888888;
+  
+  --font-display: "Inter", sans-serif;
+  
+  --radius-DEFAULT: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+}
+
+@layer base {
+  body {
+    scroll-behavior: smooth;
+    @apply bg-background-dark text-text-base font-display transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .bg-primary {
+    background: transparent;
+    color: var(--color-text-base) !important;
+    border: 1px solid var(--color-primary);
+  }
+  .bg-primary:hover {
+    background: rgba(198, 167, 94, 0.05); /* 5% cyan tint */
+    box-shadow: 0 0 15px rgba(198, 167, 94, 0.15);
+  }
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .glass-nav {
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .luxury-container {
+    background: var(--color-surface);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  }
+  .service-card {
+    border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+  .service-card:hover {
+    border-color: rgba(198, 167, 94, 0.4);
+    transform: translateY(-4px);
+    transition: all 0.3s ease;
+  }
+  .dropdown-menu {
+    opacity: 0; visibility: hidden; transform: translateY(8px);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .dropdown:hover .dropdown-menu {
+    opacity: 1; visibility: visible; transform: translateY(0);
+  }
+}
